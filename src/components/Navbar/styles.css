@@ -1,0 +1,14 @@
+.estilos-links {
+  color: rgb(212, 212, 212);
+  text-decoration: none;
+}
+
+.estilos-links:hover {
+  color: rgba(0, 255, 255, 0.575);
+  text-decoration-line: overline;
+  font-weight: 400;
+}
+
+.principal-logo {
+  font-weight: 700;
+}

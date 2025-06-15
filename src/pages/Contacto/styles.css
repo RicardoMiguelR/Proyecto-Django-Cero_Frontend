@@ -1,0 +1,15 @@
+.link-github,
+.link-linkedin {
+  text-decoration: none;
+  color: black;
+}
+
+.link-github:hover,
+.link-linkedin:hover {
+  padding: 5px;
+  margin-left: 10px;
+  border-radius: 10px;
+  background-color: black;
+  color: rgba(23, 231, 197, 0.575);
+  font-weight: 400;
+}
