@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { ProductoCard } from "../../components/ProductoCard";
 import { Layout } from "../../Layout";
 import { SinProductos } from "../../components/SinProductos";
+import axios from "axios";
 const URL_BASE = "http://127.0.0.1:8000/api/productos/";
 
 export const Home = () => {
@@ -41,6 +42,13 @@ export const Home = () => {
       <Layout>
         <div className="body-home">
           <h1>Lista de productos</h1>
+          <div className="boton-agregar">
+            <Link to="/agregar-producto">
+              <button type="button" className="btn btn-outline-dark">
+                Agregar producto +
+              </button>
+            </Link>
+          </div>
           <div className="row">
             {productos.length === 0 ? (
               <SinProductos />

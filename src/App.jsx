@@ -3,6 +3,7 @@ import { Contacto } from "./pages/Contacto";
 import { Home } from "./pages/Home";
 import { Navbar } from "./components/Navbar";
 import { NotFound } from "./components/NotFound";
+import { AgregarProducto } from "./components/AgregarProducto";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route index element={<Home />} />
+        <Route path="agregar-producto" element={<AgregarProducto />} />
         <Route path="contacto" element={<Contacto />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
