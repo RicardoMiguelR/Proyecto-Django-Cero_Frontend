@@ -1,21 +1,25 @@
+import { useState } from "react";
+import { EditarProductoModal } from "../EditarProductoModal";
 import "./styles.css";
 
-export const ProductoCard = ({ producto }) => {
+export const ProductoCard = ({ producto, onUpdate }) => {
+  const [openModalEditar, setOpenModalEditar] = useState(false);
+
   return (
     <>
       <div
         className="card card-styles mb-3 m-auto mt-5 p-2"
         style={{ maxWidth: "540px" }}
       >
-        <div className="row g-0">
-          <div className="col-md-4">
+        <div className="row">
+          <div className="col-md">
             <img
               src={producto.imagen}
               className="img-fluid rounded"
               alt="..."
             />
           </div>
-          <div className="col-md-8">
+          <div className="col-md">
             <div className="card-body">
               <h5 className="card-title">
                 <strong>{producto.nombre}</strong>
@@ -30,6 +34,15 @@ export const ProductoCard = ({ producto }) => {
                   {producto.stock}
                 </small>
               </p>
+              <div className="modal-editar">
+                <button onClick={() => setOpenModalEditar(true)}>Editar</button>
+                <EditarProductoModal
+                  open={openModalEditar}
+                  handleClose={() => setOpenModalEditar(false)}
+                  producto={producto}
+                  onUpdate={onUpdate}
+                />
+              </div>
             </div>
           </div>
         </div>
