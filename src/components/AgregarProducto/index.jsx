@@ -52,15 +52,17 @@ export const AgregarProducto = () => {
       setTimeout(() => {
         navigate("/");
       }, 1500);
-      console.log(response.data);
+      console.log(response); // console de prueba, eliminar.
     } catch (error) {
       Swal.fire({
         icon: "error",
-        title: "¡Error!",
-        text: error,
-        // footer: '<a href="#">Why do I have this issue?</a>'
+        title: "¡Ocurrio un error!",
+        text: `Tipo: ${error}`,
+        showConfirmButton: false,
+        footer: "Vuelve a intentarlo mas tarde",
+        timer: 5000,
       });
-      console.error(error);
+      navigate("/");
     }
   };
 

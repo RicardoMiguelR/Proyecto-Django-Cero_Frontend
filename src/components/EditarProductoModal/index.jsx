@@ -1,6 +1,7 @@
+import { useState, useEffect } from "react";
 import { Modal, Box, Typography, TextField, Button } from "@mui/material";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 
 const style = {
   position: "absolute",
@@ -68,14 +69,30 @@ export const EditarProductoModal = ({
           },
         }
       );
-      console.log(response);
       onUpdate(); // <- Se actualiza vista en el componente padre
       handleClose(); // <- Cerramos el modal
+      setTimeout(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "¡Producto actualizado con éxito!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }, 300);
+      console.log(response); // console de prueba, eliminar.
     } catch (error) {
-      console.error(
-        `Error al actualizar el producto ${producto.nombre}`,
-        error
-      );
+      handleClose(); // <- Cerramos el modal
+      setTimeout(() => {
+        Swal.fire({
+          icon: "error",
+          title: "¡Ocurrio un error al actualizar el producto!",
+          text: `Tipo: ${error}`,
+          showConfirmButton: false,
+          footer: "Vuelve a intentarlo mas tarde",
+          timer: 5000,
+        });
+      }, 300);
     }
   };
 
