@@ -1,9 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import { Contacto } from "./pages/Contacto";
-import { Home } from "./pages/Home";
 import { Navbar } from "./components/Navbar";
-import { NotFound } from "./components/NotFound";
+import { Home } from "./pages/Home";
+import { ListaProductos } from "./components/ListaProductos";
 import { AgregarProducto } from "./components/AgregarProducto";
+import { Contacto } from "./pages/Contacto";
+import { NotFound } from "./components/NotFound";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route index element={<Home />} />
+        <Route path="lista-productos" element={<ListaProductos />} />
         <Route path="agregar-producto" element={<AgregarProducto />} />
         <Route path="contacto" element={<Contacto />} />
         <Route path="*" element={<NotFound />} />
